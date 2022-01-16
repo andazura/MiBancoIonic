@@ -1,0 +1,7 @@
+{
+  "name": "MiBanco",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
