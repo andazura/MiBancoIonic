@@ -1,0 +1,25 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Transaccion</ion-title>
+  </ion-toolbar>
+</ion-header>
+     
+  <ion-content class="ion-padding">
+    
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">Valor</ion-col>
+        <ion-col size="4">Fecha</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let mov of fireService.movimientos" style="border-bottom: groove;">
+        <ion-col size="4" [ngStyle]="{color : mov.tipo_trs =='retiro' || mov.tipo_trs =='compra'  ? 'red':'green'}">{{mov.valor_trs}}</ion-col>
+        <ion-col size="4">{{mov.fecha | date: 'dd MMM hh:mm'}}</ion-col>
+        <ion-col size="4">{{mov.tipo_trs}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <div id="particles-js" style="width: 100%;height: 100%;position: absolute;"></div>
+  <script src="../../../assets/particles.js"></script>
+
+

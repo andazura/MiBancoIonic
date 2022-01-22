@@ -1,0 +1,39 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Transaccion</ion-title>
+  </ion-toolbar>
+</ion-header>
+     
+  <ion-content class="ion-padding">
+    <h3 class="ion-text-center">Cuenta Destino {{destino}}</h3>
+    
+    <form #ftrans="ngForm" (ngSubmit)="generarTransaccion(ftrans)" >
+      <ion-item>
+        <ion-label>Valor Transaccion</ion-label>
+        <ion-input type="number" name="valor" value="0" placeholder="Valor a transferir" minlength="1" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cuenta origen:</ion-label>
+        <ion-select name="cuenta_orig" multiple="false" placeholder="Cuenta Origen" ngModel required>
+          <ion-select-option *ngFor="let c of cuentas" [value]="c">{{c.alias}}-{{c.numero}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button  type="submit" color="tertiary" shape="round">
+            Realizar Transaccion
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+      
+    </form>
+  </ion-content>
+  <!-- <div id="particles-js" style="width: 100%;height: 100%;"></div> -->
+  <script src="../../../assets/particles.js"></script>
+
+

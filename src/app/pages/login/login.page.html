@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-slides class="mainSlide">
+
+    <ion-slide>
+
+      <form #formLogin="ngForm" (ngSubmit)="login(formLogin)" >
+        <ion-grid fixed>
+
+          <ion-row>
+            <ion-col>
+              <img src="/assets/banco.png">
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+
+              <ion-list>
+
+                <ion-item>
+                  <ion-label>Email</ion-label>
+                  <ion-input name="email" type="email" ngModel required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Password</ion-label>
+                  <ion-input name="password" type="password" ngModel required></ion-input>
+                </ion-item>
+
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" color="tertiary" shape="round">
+                Login
+              </ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </form>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
