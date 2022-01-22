@@ -82,7 +82,9 @@ export class FirebaseService {
           this.cuentas.forEach(c => {
               if(c.propertyId == cuentaOrigen.propertyId){
                 this.actualizasaldo(c.propertyId,c.saldo-monto);
+                this.guardaTransaccion(c,monto,"retiro");
                 this.actualizasaldo(cuenta.propertyId,cuenta.saldo);
+                this.guardaTransaccion(cuenta,monto,"consignacion");
                 getDestino.unsubscribe();
                 return true;
               }
@@ -91,6 +93,21 @@ export class FirebaseService {
         }else{
           return false;
         }
+      }
+    )
+  }
+  guardaTransaccion(cuneta:cuenta,monto,tipo){
+    let mov : movimiento = 
+      {
+        numero_cuenta:cuneta.numero,
+        tipo_trs:tipo,
+        valor_trs: monto,
+        fecha: new Date()
+      }
+    
+    this.movimientosCollection.add(mov).then(
+      (res) =>{
+        console.log("trans guarda",res);
       }
     )
   }

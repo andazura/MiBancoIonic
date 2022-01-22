@@ -16,6 +16,7 @@ export class DataLocalService {
   async init() {
     const storage = await this.storage.create();
     this._storage = storage;
+    this._storage.set("config","");
   }
   /**
    * Realiza gurdado de session
@@ -46,7 +47,7 @@ export class DataLocalService {
     if(!tieneSession){
       this.alerta("Su sesion expiro");
       this.router.navigate(['login']);
-      this._storage.set("config","")
+      this._storage.set("config","");
     }else{
       this.user = session.email;
     }

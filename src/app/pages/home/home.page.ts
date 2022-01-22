@@ -38,7 +38,6 @@ export class HomePage {
           this.elemento.scrollTop = this.elemento.scrollHeight;
         },20)
         this._fires.cuentas.forEach((val,i)=>{
-          console.log("creando")
           this.bservice.crearCodigoQr(val.propertyId).subscribe(
             (res) => {
               console.log(res)
